@@ -6,6 +6,11 @@
         body {
             margin: 0;
         }
+        main {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
         .nav {
             display: grid;
             grid-template-columns: auto auto 45px;
@@ -56,55 +61,55 @@
 
         .form {
             display: flex;
-            /* justify-content: center; */
+            position: relative;
+            /* max-width: 544px; */
+            /* align-items: center; */
             /* max-width: 584px; */
         }
 
-        form {
-            max-width: 544px;
-            width: 100%;
-            margin: 0 auto;
+        .form #search {
+            height: 14px;
+            width: 14px;
+            opacity: 0.5;
+            position: absolute;
+            left: 15px;
+            top: 20px;
+        }
+
+        .form #mic {
+            height: 21px;
+            width: 16px;
+            /* opacity: 0.5; */
+            position: absolute;
+            right: 15px;
+            top: 15px;
+        }
+
+        input {
+            width: 582px;
+            display: flex;
             border: 1px solid #dfe1e5;
             height: 44px;
             border-radius: 24px;
             background-color: white;
-            padding: 0 20px
+            padding: 0 20px;
+            text-align: left;
+            background: none;
+            z-index: 3;
+            line-height: 34px;
+            height: 44px;
+            margin-top: 5px;
+            font-size: 16px;
+            padding: 0 40px;
         }
 
-        form:hover {
+        input:hover {
             box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
             border-color: rgba(223,225,229,0);
         }
 
-        input[type="text"] {
-            width: 100%;
-            border: none;
-            background: none;
-            z-index: 3;
-            line-height: 34px;
-            height: 34px;
-            display: flex;
-            flex: 1;
-            margin-top: 5px;
-            font-size: 16px;
-        }
-
         input[type="text"]:focus {
             outline: none;
-        }
-
-        .magnify {
-            height: 20px;
-            width: 20px;
-            color: #9aa0a6;
-            display: flex;
-            flex: 1;
-        }
-
-        .magnify svg {
-            display: block;
-            height: 100%;
-            width: 100%;
         }
 
         .buttons {
@@ -152,50 +157,54 @@
     </style>
 </head>
 
-<header>
-    <div class="nav">
-        <div class="nav-left">
-            <a href="">About</a>
-            <a href="">Store</a>
-        </div>
-        <div class="nav-right">
-            <a href="">Gmail</a>
-            <a href="">Images</a>
-        </div>
-        <div class="nav-image">
-            <a href=""><img id="pfp" src="https://lh3.googleusercontent.com/ogw/ADGmqu_l3O6RZOKfwn0W_Eyzy8_C2TXciqjSUE6lK1bd=s32-c-mo"></a>
-        </div>
-    </div>
-</header>
-
 <body>
-    <div class="logo-div">
-        <img id="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
-    </div>
+    <header>
+        <div class="nav">
+            <div class="nav-left">
+                <a href="">About</a>
+                <a href="">Store</a>
+            </div>
+            <div class="nav-right">
+                <a href="">Gmail</a>
+                <a href="">Images</a>
+            </div>
+            <div class="nav-image">
+                <a href=""><img id="pfp" src="https://lh3.googleusercontent.com/ogw/ADGmqu_l3O6RZOKfwn0W_Eyzy8_C2TXciqjSUE6lK1bd=s32-c-mo"></a>
+            </div>
+        </div>
+    </header>
 
-    <div class="form">
-        <form>
-            <!-- <span class="magnify"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span> -->
+
+    <main>
+        <div class="logo-div">
+            <img id="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+        </div>
+
+        <div class="form">
+            <img id="search" src="search.png">
             <input type="text">
-        </form>
-    </div>
+            <img id="mic" src="mic2.jpg">
+        </div>
 
-    <div class="buttons">
-        <a href="#" class="button">Google Search</a>
-        <a href="#" class="button">I'm Feeling Lucky</a>
-    </div>
+        <div class="buttons">
+            <a href="#" class="button">Google Search</a>
+            <a href="#" class="button">I'm Feeling Lucky</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <div class="footer-nav-left">
+                <a href="">Advertising</a>
+                <a href="">Business</a>
+                <a href="">How Search works</a>
+            </div>
+            <div class="footer-nav-right">
+                <a href="">Privacy</a>
+                <a href="">Terms</a>
+                <a href="">Settings</a>
+            </div>
+        </div>
+    </footer>
+
 </body>
-<footer>
-    <div class="footer-nav">
-        <div class="footer-nav-left">
-            <a href="">Advertising</a>
-            <a href="">Business</a>
-            <a href="">How Search works</a>
-        </div>
-        <div class="footer-nav-right">
-            <a href="">Privacy</a>
-            <a href="">Terms</a>
-            <a href="">Settings</a>
-        </div>
-    </div>
-</footer>
