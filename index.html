@@ -1,11 +1,119 @@
 <head>
     <style>
+        h1,h2,h3,h4,h5,h6,a,p {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body {
+            margin: 0;
+        }
+        .nav {
+            display: grid;
+            grid-template-columns: auto auto 45px;
+            padding: 15px 13px;
+        }
+
+        .nav-left, .footer-nav-left {
+            justify-self: start;
+            align-self: center;
+        }
+
+        .nav-right, .footer-nav-right {
+            justify-self: end;
+            padding: 0 24px;
+            align-self: center;
+        }
+        .nav-image {
+            justify-self: end;
+            padding-right: 15px;
+        }
+
+        .nav a {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #000;
+            opacity: 0.75;
+            text-decoration: none;
+            padding-left: 15px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        #pfp {
+            border-radius: 50%;
+        }
+
         .logo-div {
             text-align: center;
+            height: 200px;
+            margin: 49px 0 0;
         }
+
         #logo {
-            margin: 10px auto;
+            padding-top: 80px;
         }
+
+        .form {
+            display: flex;
+            /* justify-content: center; */
+            /* max-width: 584px; */
+        }
+
+        form {
+            max-width: 544px;
+            width: 100%;
+            margin: 0 auto;
+            border: 1px solid #dfe1e5;
+            height: 44px;
+            border-radius: 24px;
+            background-color: white;
+            padding: 0 20px
+        }
+
+        form:hover {
+            box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+            border-color: rgba(223,225,229,0);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            border: none;
+            background: none;
+            z-index: 3;
+            line-height: 34px;
+            height: 34px;
+            display: flex;
+            flex: 1;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+        }
+
+        .magnify {
+            height: 20px;
+            width: 20px;
+            color: #9aa0a6;
+            display: flex;
+            flex: 1;
+        }
+
+        .magnify svg {
+            display: block;
+            height: 100%;
+            width: 100%;
+        }
+
+        .buttons {
+            text-align: center;
+            line-height: 27px;
+            font-size: 14px;
+            padding: 30px 40px;
+        }
+
         .button {
             background-color: #f5f5f5;
             border: 1px solid #f2f2f2;
@@ -17,22 +125,59 @@
             text-decoration: none;
             min-width: 54px;
         }
+
         .button:hover {
-            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
-            background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
             border: 1px solid #c6c6c6;
             color: #222
         }
-        .buttons {
-            text-align: center;
-            line-height: 27px;
-            font-size: 14px
+        .footer-nav {
+            background-color: #f2f2f2;
+            line-height: 40px;
+            border-top: 1px solid #e4e4e4;
+            display: grid;
+            grid-template-columns: auto auto;
+            position: fixed;
+            bottom: 0px;
+            width: 100%;
+            height: 41px;
+        }
+        .footer-nav a {
+            color: #5f6368;
+            font-size: 14px;
+            text-decoration: none;
+            padding-left: 27px;
         }
     </style>
 </head>
+
+<header>
+    <div class="nav">
+        <div class="nav-left">
+            <a href="">About</a>
+            <a href="">Store</a>
+        </div>
+        <div class="nav-right">
+            <a href="">Gmail</a>
+            <a href="">Images</a>
+        </div>
+        <div class="nav-image">
+            <a href=""><img id="pfp" src="https://lh3.googleusercontent.com/ogw/ADGmqu_l3O6RZOKfwn0W_Eyzy8_C2TXciqjSUE6lK1bd=s32-c-mo"></a>
+        </div>
+    </div>
+</header>
+
 <body>
     <div class="logo-div">
         <img id="logo" src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+    </div>
+
+    <div class="form">
+        <form>
+            <!-- <span class="magnify"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span> -->
+            <input type="text">
+        </form>
     </div>
 
     <div class="buttons">
@@ -41,5 +186,16 @@
     </div>
 </body>
 <footer>
-
+    <div class="footer-nav">
+        <div class="footer-nav-left">
+            <a href="">Advertising</a>
+            <a href="">Business</a>
+            <a href="">How Search works</a>
+        </div>
+        <div class="footer-nav-right">
+            <a href="">Privacy</a>
+            <a href="">Terms</a>
+            <a href="">Settings</a>
+        </div>
+    </div>
 </footer>
