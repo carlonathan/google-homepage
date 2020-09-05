@@ -1,0 +1,442 @@
+<head>
+    <style>
+        h1,h2,h3,h4,h5,h6,a,p {
+            font-family: Arial, Helvetica, sans-serif !important;
+        }
+        body {
+            margin: 0;
+        }
+        main {
+            display: flex;
+            align-items: start;
+            flex-direction: column;
+        }
+        .nav {
+            display: grid;
+            grid-template-columns: 120px auto 45px;
+            padding: 20px 13px;
+        }
+
+        .nav-logo {
+            align-self: center;
+        }
+
+        .nav-left, .footer-nav-left {
+            justify-self: start;
+            align-self: center;
+            padding-left: 30px;
+        }
+
+        .nav-right, .footer-nav-right {
+            justify-self: end;
+            padding: 0 24px;
+            align-self: center;
+        }
+        .nav-image {
+            justify-self: end;
+            padding-right: 15px;
+            align-self: center;
+        }
+        .nav .nav-image a {
+            opacity: 1;
+        }
+
+        .nav a {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 13px;
+            color: #000;
+            opacity: 0.75;
+            text-decoration: none;
+            padding-left: 15px;
+        }
+
+        .nav a:hover {
+            /* text-decoration: underline; */
+        }
+
+        .nav-results {
+            padding-top: 0px;
+            padding-bottom: 10px;
+            padding-left: 50px;
+        }
+        .nav-results a {
+            padding: 0 15px 10px;
+        }
+        .nav-results a.selected {
+            color: #1A73E8;
+            border-bottom: 3px solid #1A73E8;
+            opacity: 1;
+        }
+        .nav-results-right {
+            padding-left: 125px;
+        }
+
+        .nav.nav-bottom {
+            border-bottom: 1px solid #ebebeb;
+            padding: 10px 0px 1px;
+            margin-top: -7px;
+        }
+
+        #pfp {
+            border-radius: 50%;
+            opacity: 1;
+        }
+
+        .logo-div {
+            text-align: center;
+            height: 200px;
+            margin: 49px 0 0;
+        }
+
+        #logo {
+            /* padding-top: 80px; */
+            height: auto;
+            padding-left: 12px;
+            width: 92px;
+        }
+
+        .form {
+            display: flex;
+            position: relative;
+            /* max-width: 544px; */
+            /* align-items: center; */
+            /* max-width: 584px; */
+        }
+
+        .form #search {
+            height: 17px;
+            width: 17px;
+            opacity: 0.5;
+            position: absolute;
+            right: 20px;
+            top: 17px;
+        }
+
+        .form #mic {
+            height: 21px;
+            width: 16px;
+            /* opacity: 0.5; */
+            position: absolute;
+            right: 55px;
+            top: 17px;
+        }
+
+        input {
+            width: 690px;
+            display: flex;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            background-color: white;
+            text-align: left;
+            background: none;
+            z-index: 3;
+            line-height: 34px;
+            height: 44px;
+            margin-top: 5px;
+            font-size: 16px;
+            padding: 0 20px;
+        }
+
+        input:hover {
+            box-shadow: 0 1px 6px 0 rgba(32,33,36,0.28);
+            border-color: rgba(223,225,229,0);
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+        }
+
+        .buttons {
+            text-align: center;
+            line-height: 27px;
+            font-size: 14px;
+            padding: 30px 40px;
+        }
+
+        .button {
+            background-color: #f5f5f5;
+            border: 1px solid #f2f2f2;
+            border-radius: 4px;
+            padding: 8px 16px;
+            margin: 11px 4px;
+            color: #5F6368;
+            font-family: Arial, sans-serif;
+            text-decoration: none;
+            min-width: 54px;
+        }
+
+        .button:hover {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background-image: -webkit-linear-gradient(top, #f8f8f8, #f1f1f1);
+            border: 1px solid #c6c6c6;
+            color: #222
+        }
+
+        .results-all {
+            padding-left: 180px;
+        }
+        .result-number {
+            font-size: 14px;
+            color: #70757A;
+            margin: 15px 0 5px;
+        }
+        .result {
+            padding: 12px 0 10px;
+            max-width: 600px;
+            display: grid;
+        }
+        .result h3 {
+            margin: 2px 0;
+        }
+        .result h3 a {
+            font-weight: 400;
+            font-size: 20px;
+            text-decoration: none;
+            margin: 2px 0;
+        }
+        .result h4 {
+            margin: 2px 0 7px;
+            font-size: 14px;
+            font-weight: 300;
+            color: #202124;
+        }
+        .result h4 span {
+            color: #4F6368;
+        }
+        .result p {
+            font-size: 14px;
+            max-width: calc(100% - 2px);
+            line-height: 1.58;
+            margin: 3px 0 5px;
+            color: #4d5156;
+        }
+
+        .similar { 
+            border: 1px solid #dadce0;
+            border-radius: 8px;
+            padding: 2px 15px 5px;
+            margin-bottom: 5px;
+        }
+        .similar p {
+            color: rgba(0,0,0,0.57);
+            font-weight: 700;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .similar-list {
+            display: grid;
+            grid-template-columns: 150px auto;
+            font-size: 14px;
+        }
+        .similar-list a {
+            display: grid;
+            align-self: start;
+            color: #1a0dab;
+            text-decoration: none;
+            margin-bottom: 7px;
+        }
+
+        .related h3 {
+            font-weight: 400;
+            color: #222;
+        }
+        .related {
+            margin-bottom: 30px;
+        }
+        .related td {
+            padding-bottom: 7px;
+        }
+        .related a {
+            color: #1a0dab;
+            font-size: 14px;
+            padding: 3px 32px 3px 0px;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+    
+        .footer-nav {
+            background-color: #f2f2f2;
+            line-height: 40px;
+            border-top: 1px solid #e4e4e4;
+            padding-left: 150px;
+            /* display: grid; */
+            /* grid-template-columns: auto auto; */
+            /* position: fixed; */
+            bottom: 0px;
+            width: 100%;
+            height: 41px;
+        }
+        .footer-nav a {
+            color: #5f6368;
+            font-size: 14px;
+            text-decoration: none;
+            padding-left: 27px;
+        }
+        .footer-nav p {
+            margin: 0;
+            padding-left: 27px;
+            font-size: 14px;
+            color: #5F6368;
+        }
+        .footer-nav span.location {
+            color: rgba(0,0,0,0.54);
+            font-size: 15px;
+        }
+        .footer-nav span.line {
+            padding: 0 10px;
+            margin-top: -5px;
+            font-size: 18px;
+            font-weight: 100;
+            opacity: 0.2;
+        }
+        .footer-nav strong {
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav">
+            <div class="nav-logo">
+                <img id="logo" src="google_small.png">
+            </div>
+            <div class="nav-left">
+                <div class="form">
+                    <img id="search" src="search.png">
+                    <input type="text" value="build this webpage">
+                    <img id="mic" src="mic2.jpg">
+                </div>
+            </div>
+            <div class="nav-image">
+                <a href=""><img id="pfp" src="https://lh3.googleusercontent.com/ogw/ADGmqu_l3O6RZOKfwn0W_Eyzy8_C2TXciqjSUE6lK1bd=s32-c-mo"></a>
+            </div>
+        </div>
+
+        <div class="nav-bottom nav">
+            <div class="empty">
+            </div>
+            <div class="nav-left nav-results">
+                <a class="selected" href="">All</a>
+                <a href="">News</a>
+                <a href="">Maps</a>
+                <a href="">Videos</a>
+                <a href="">Shopping</a>
+                <a href="">More</a>
+                <span class="nav-results-right">
+                    <a href="">Settings</a>
+                    <a href="">Tools</a>
+                </span>
+            </div>
+            <div class="empty">
+            </div>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="results-all">
+            <p class="result-number">About 89,200,000 results (0.48 seconds)</p>
+            
+            <div class="result">
+                <h4>victor-lf.github.io › <span>google-search-results</span></h4>
+                <h3><a href="">build this webpage - GitHub Pages</a></h3>
+                <p>build this webpage. https://benjdelt.github.io/google-results/. With zero coding experience, artist building 180 webpages in 180 days ...</p>
+            </div>
+
+            <div class="similar">
+                <p>People also search for</p>
+                <div class="similar-list">
+                    <a href="#">html and css projects</a>
+                    <a href="#">github</a>
+                    <a href="#">css reset</a>
+                    <a href="#">two ways to move a div around a page</a>
+                    <a href="#">odin project</a>
+                </div>
+            </div>
+            
+            <div class="result">
+                <h4>christine-27.github.io › <span>google-search-results</span></h4>
+                <h3><a href="">build this webpage - GitHub Pages</a></h3>
+                <p>TO CREATE A WEBSITE WITH WORDPRESS (OR JOOMLA & DRUPAL), USE ONE CLICK INSTALLATION: 1. Log in to your hosting account. 2. Go to your ...</p>
+            </div>
+
+
+            <div class="result">
+                <h4>www.websitebuilderexpert.com › <span>building-websites</span></h4>
+                <h3><a href="">How to Build a Website 2020 | The Complete Beginner's Guide</a></h3>
+                <p>How to Build a Website: the Step-by-Step Guide to Easy Setup. We'll look at how to make a website with both a website builder and WordPress, ...</p>
+            </div>
+
+            <div class="result">
+                <h4>arstechnica.com › <span>information-technology › 2013/07</span></h4>
+                <h3><a href="">With zero coding experience, artist building 180 webpages in ...</a></h3>
+                <p>One of Jennifer Dewalt's creations, this webpage lets visitors create paintings in ... Build a different website every day for 180 consecutive days.</p>
+            </div>
+
+            <div class="result">
+                <h4>www.pcmag.com › <span>Web Hosting</span></h4>
+                <h3><a href="">How to Create a Website | PCMag</a></h3>
+                <p>If you need to quickly build a simple website, starting with a blogging service is a great way to go. The major player in the blog game is WordPress, a content ...</p>
+            </div>
+
+            <div class="result">
+                <h4>www.buildthis.io › <span>make-a-website</span></h4>
+                <h3><a href="">How to Build A Website: A-to-Z Beginner Guide - BuildThis.io</a></h3>
+                <p>The Essential Steps to Build Your Own Website · 1. Register a domain name · 2. Sign up for a web hosting account · 3. Design your webpages · 4.</p>
+            </div>
+
+            <div class="result">
+                <h4>www.squarespace.com</h4>
+                <h3><a href="">Squarespace: Build a Website – Website Builder</a></h3>
+                <p>Squarespace is the all-in-one solution for anyone looking to create a beautiful website. Domains, eCommerce, hosting, galleries, analytics, and 24/7 support all ...</p>
+            </div>
+
+            <div class="result">
+                <h4>www.google.com › <span>business-website</span></h4>
+                <h3><a href="">Free Website Builder For Your Business - Google My Business</a></h3>
+                <p>Let Google build your first website for free. We'll help you create a beautiful website to impress and engage new customers – and establish your business online.</p>
+            </div>
+        
+            <div class="related">
+                <h3>Searches related to build this webpage</h3>
+                <table>
+                    <tr>
+                        <td><a href="#">how to build a website from scratch</a></td>
+                        <td><a href="#">free website</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">build a website free</a></td>
+                        <td><a href="#">how to create a website on google</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">how to build a website from scratch html</a></td>
+                        <td><a href="#">how to build a website pdf</a></td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">build a website in a day</a></td>
+                        <td><a href="#">create professional website</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <p><span class="location">Canada</span><span class="line">|</span><strong>V3E 3M1, Coquitlam, BC</strong> - From your places (Home) - Use precise location - Learn more</p>
+
+        </div>
+        <div class="footer-nav">
+                <a href="">Help</a>
+                <a href="">Send feedback</a>
+                <a href="">Privacy</a>
+                <a href="">Terms</a>
+        </div>
+    </footer>
+
+</body>
